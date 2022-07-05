@@ -179,4 +179,6 @@ public class JDBCTest {
         statement.close();
         connection.close();
     }
+
+    // 测试git账号名是否被修改
 }
