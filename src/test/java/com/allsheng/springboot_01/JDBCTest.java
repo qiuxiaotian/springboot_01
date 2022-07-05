@@ -13,58 +13,6 @@ import java.util.List;
 public class JDBCTest {
 
     /**
-     * 删除表 DDL
-     * @throws Exception
-     */
-    @Test
-    public void test03() throws Exception {
-        // 1.注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        // 2.获取连接数据库
-        String url = "jdbc:mysql:///db1?useSSL=false";
-        String username = "root";
-        String password = "1234";
-        Connection connection = DriverManager.getConnection(url, username, password);
-        // 3.写sql
-        String sql = "drop table user";
-        // 4.创建执行sql对象
-        Statement statement = connection.createStatement();
-        // 5.执行sql
-        int count = statement.executeUpdate(sql);
-        // 6.处理结果
-        System.out.println(count);
-        // 7.关闭资源
-        statement.close();
-        connection.close();
-    }
-
-    /**
-     * 创建表 DDL
-     * @throws Exception
-     */
-    @Test
-    public void test04() throws Exception {
-        // 1.注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        // 2.获取连接数据库
-        String url = "jdbc:mysql:///db1?useSSL=false";
-        String username = "root";
-        String password = "1234";
-        Connection connection = DriverManager.getConnection(url, username, password);
-        // 3.写sql
-        String sql = "create table `user` (`id` int primary key AUTO_INCREMENT not null, `username` varchar(255), `password` varchar(255));";
-        // 4.创建执行sql对象
-        Statement statement = connection.createStatement();
-        // 5.执行sql
-        int count = statement.executeUpdate(sql);
-        // 6.处理结果
-        System.out.println(count);
-        // 7.关闭资源
-        statement.close();
-        connection.close();
-    }
-
-    /**
      * 查询数据 DQL
      * @throws Exception
      */
@@ -117,6 +65,58 @@ public class JDBCTest {
         Connection connection = DriverManager.getConnection(url, username, password);
         // 3.写sql
         String sql = "update user set username = 'wangwu' where username = 'zhangsan'";
+        // 4.创建执行sql对象
+        Statement statement = connection.createStatement();
+        // 5.执行sql
+        int count = statement.executeUpdate(sql);
+        // 6.处理结果
+        System.out.println(count);
+        // 7.关闭资源
+        statement.close();
+        connection.close();
+    }
+
+    /**
+     * 删除表 DDL
+     * @throws Exception
+     */
+    @Test
+    public void test03() throws Exception {
+        // 1.注册驱动
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        // 2.获取连接数据库
+        String url = "jdbc:mysql:///db1?useSSL=false";
+        String username = "root";
+        String password = "1234";
+        Connection connection = DriverManager.getConnection(url, username, password);
+        // 3.写sql
+        String sql = "drop table user";
+        // 4.创建执行sql对象
+        Statement statement = connection.createStatement();
+        // 5.执行sql
+        int count = statement.executeUpdate(sql);
+        // 6.处理结果
+        System.out.println(count);
+        // 7.关闭资源
+        statement.close();
+        connection.close();
+    }
+
+    /**
+     * 创建表 DDL
+     * @throws Exception
+     */
+    @Test
+    public void test04() throws Exception {
+        // 1.注册驱动
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        // 2.获取连接数据库
+        String url = "jdbc:mysql:///db1?useSSL=false";
+        String username = "root";
+        String password = "1234";
+        Connection connection = DriverManager.getConnection(url, username, password);
+        // 3.写sql
+        String sql = "create table `user` (`id` int primary key AUTO_INCREMENT not null, `username` varchar(255), `password` varchar(255));";
         // 4.创建执行sql对象
         Statement statement = connection.createStatement();
         // 5.执行sql
