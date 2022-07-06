@@ -117,12 +117,18 @@ public class JDBCTest {
         Connection connection = DriverManager.getConnection(url, username, password);
         // 3.写sql
         String sql = "update user set username = 'wangwu' where username = 'zhangsan'";
+        String sql1 = "update user set username = 'zhangsan' where username = 'lisi'";
+        String sql2 = "update user set username = 'lisi' where username = 'wangwu'";
         // 4.创建执行sql对象
         Statement statement = connection.createStatement();
         // 5.执行sql
         int count = statement.executeUpdate(sql);
+        int count1 = statement.executeUpdate(sql1);
+        int count2 = statement.executeUpdate(sql2);
         // 6.处理结果
         System.out.println(count);
+        System.out.println(count1);
+        System.out.println(count2);
         // 7.关闭资源
         statement.close();
         connection.close();
@@ -168,7 +174,8 @@ public class JDBCTest {
         String password = "1234";
         Connection connection = DriverManager.getConnection(url, username, password);
         // 3.写sql
-        String sql = "delete from user where `username` = 'zhangsan'";
+        String sql = "delete from user ";
+
         // 4.创建执行sql对象
         Statement statement = connection.createStatement();
         // 5.执行sql
